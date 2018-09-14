@@ -1,0 +1,132 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZPO_HEADER_C_CDS" xml:lang="fr" sap:schema-version="1">
+			<EntityType Name="I_DraftAdministrativeDataType" sap:label="Données de gestion pour version préliminaire" sap:content-version="1">
+				<Key><PropertyRef Name="DraftUUID"/></Key><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="VersPrélim. (IDtech)"
+					sap:quickinfo="Version préliminaire (ID technique)"/><Property Name="DraftIsKeptByUser" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Version préliminaire conservée par util."
+					sap:quickinfo="Version préliminaire conservée par l'utilisateur"/><Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Version préliminaire bloquée depuis"/><Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Version préliminaire créée par moi"/><Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" sap:display-format="UpperCase"
+					sap:label="Version prél. modifiée en dern. par moi" sap:quickinfo="Version préliminaire modifiée en dernier par moi"/><Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Version préliminaire traitée par moi"/><Property Name="CreatedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Version préliminaire créée par (descr.)"
+					sap:quickinfo="Version préliminaire créée par (description)"/><Property Name="LastChangedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Dern. modif. version prél. par (descr.)"
+					sap:quickinfo="Dernière modif. de version préliminaire par (description)"/><Property Name="InProcessByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Version prélim. en crs trt. par (descr.)"
+					sap:quickinfo="Version préliminaire en cours de traitement par (descr.)"/><Property Name="DraftEntityType" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="ID entité vers. pré."
+					sap:quickinfo="ID de l'entité de version préliminaire"/><Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Version préliminaire créée le"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="CreatedByUserDescription"
+					sap:label="Version préliminaire créée par"/><Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Dernière modif. de version prélim. le"
+					sap:quickinfo="Dernière modification de version préliminaire le"/><Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="LastChangedByUserDescription"
+					sap:label="Dernière modif. de version prél. par" sap:quickinfo="Dernière modification de version préliminaire par"/><Property Name="DraftAccessType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Ty. accès vers. pré."
+					sap:quickinfo="Type d'accès à la version préliminaire"/><Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Version prélim. en cours de trt. depuis"
+					sap:quickinfo="Version préliminaire en cours de traitement depuis"/><Property Name="InProcessByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="InProcessByUserDescription"
+					sap:label="Version prélim. en cours de trait. par" sap:quickinfo="Version préliminaire en cours de traitement par"/></EntityType>
+			<EntityType Name="ZPO_HEADER_CType" sap:label="PO Header Consumption View" sap:content-version="1">
+				<Key><PropertyRef Name="OrderNumber"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Activation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Edit_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Order Number"
+					sap:quickinfo="Numéro du document d'achat" sap:creatable="false" sap:updatable="false"/><Property Name="CurrencyKey" Type="Edm.String" MaxLength="5" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code" sap:quickinfo="Société"
+					sap:creatable="false" sap:updatable="false"/><Property Name="OrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type"
+					sap:quickinfo="Type de document achat"/><Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Créé le"
+					sap:quickinfo="Date de création de l'enregistrement" sap:creatable="false" sap:updatable="false"/><Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"
+					sap:quickinfo="Nom de l'utilisateur qui a créé l'objet" sap:creatable="false" sap:updatable="false"/><Property Name="ChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Date/Hre dern. mod."
+					sap:quickinfo="Horodatage de la modification en forme longue" sap:creatable="false" sap:updatable="false"/><Property Name="Vendor" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fournisseur"
+					sap:quickinfo="Numéro de compte fournisseur"/><Property Name="PurchasingOrg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organisation achats"
+					sap:quickinfo="Organisation d'achats"/><Property Name="PurchasingGrp" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Groupe d'acheteurs"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Clé"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Version préliminaire créée le"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Dernière modif. de version prélim. le"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="A un document actif" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="A version prélim." sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Est actif"
+					sap:sortable="false"/><NavigationProperty Name="DraftAdministrativeData" Relationship="ZPO_HEADER_C_CDS.assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"
+					FromRole="FromRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0" ToRole="ToRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"/><NavigationProperty Name="SiblingEntity" Relationship="ZPO_HEADER_C_CDS.assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"
+					FromRole="FromRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F" ToRole="ToRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"/><NavigationProperty Name="to_items" Relationship="ZPO_HEADER_C_CDS.assoc_EFF7930E61AD79A1729AAF217D510F37"
+					FromRole="FromRole_assoc_EFF7930E61AD79A1729AAF217D510F37" ToRole="ToRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/></EntityType>
+			<EntityType Name="ZPO_ITEM_CType" sap:label="PO Item Consumption View" sap:content-version="1">
+				<Key><PropertyRef Name="OrderNumber"/><PropertyRef Name="OrderItem"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Document d'achat"
+					sap:quickinfo="Numéro du document d'achat" sap:creatable="false" sap:updatable="false"/><Property Name="werks" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Division"/><Property Name="lgort" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Magasin"/><Property Name="matkl" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Groupe d'articles"/><Property Name="infnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fiche infos-achats"
+					sap:quickinfo="Numéro de la fiche infos-achats"/><Property Name="menge" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Quantité de commande"/><Property Name="meins" Type="Edm.String" MaxLength="3" sap:label="Unité d'achat" sap:semantics="unit-of-measure"/><Property Name="bprme" Type="Edm.String" MaxLength="3" sap:label="Unité de prix" sap:semantics="unit-of-measure"/><Property Name="bpumz" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Conversion quantités"
+					sap:quickinfo="Numérateur pour conversion d'unité prix en unité achat"/><Property Name="bpumn" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Conversion quantités"
+					sap:quickinfo="Dénominateur pour conversion d'unité prix en unité achat"/><Property Name="umrez" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Correspond à"
+					sap:quickinfo="Compteur pour conversion de l'UA en unité de base"/><Property Name="OrderItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="Item Number"
+					sap:quickinfo="Numéro de poste du document d'achat" sap:creatable="false" sap:updatable="false"/><Property Name="umren" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Dénominateur"
+					sap:quickinfo="Dénominateur pour conversion de l'UA en unité de base"/><Property Name="netpr" Type="Edm.Decimal" Precision="12" Scale="3" sap:label="Prix net de la cde"
+					sap:quickinfo="Prix net du document d'achat dans la devise du document"/><Property Name="peinh" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Base de prix"/><Property Name="netwr" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Val. nette commande"
+					sap:quickinfo="Valeur nette de commande en devise définie dans la commande"/><Property Name="brtwr" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Valeur cde brute"
+					sap:quickinfo="Valeur de commande brute en devise de la commande"/><Property Name="prdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date prix"
+					sap:quickinfo="Date de détermination de prix"/><Property Name="bstyp" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Catég. doc. d'achat"
+					sap:quickinfo="Catégorie du document d'achat"/><Property Name="effwr" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Valeur réelle" sap:quickinfo="Valeur réelle du poste"/><Property Name="xoblr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Signific.engagements"
+					sap:quickinfo="Poste significatif pour engagements"/><Property Name="adrn2" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adresse"
+					sap:quickinfo="Numéro de l'adresse de livraison"/><Property Name="loekz" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Code de suppression"
+					sap:quickinfo="Code de suppression dans le document d'achat"/><Property Name="statu" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Statut demande offre"
+					sap:quickinfo="Statut de la demande d'offre"/><Property Name="aedat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernière modif. le"
+					sap:quickinfo="Date de modification du poste de document d'achat"/><Property Name="txz01" Type="Edm.String" MaxLength="40" sap:label="Désignation"/><Property Name="matnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Article" sap:quickinfo="Numéro d'article"/><Property Name="ematn" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Article" sap:quickinfo="Numéro article"/><Property Name="bukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Clé"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Version préliminaire créée le"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Dernière modif. de version prélim. le"/><Property Name="ParentDraftUUID" Type="Edm.Guid" sap:label="Clé" sap:sortable="false" sap:filterable="false"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="A un document actif" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="A version prélim." sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Est actif"
+					sap:sortable="false"/><NavigationProperty Name="to_header" Relationship="ZPO_HEADER_C_CDS.assoc_EFF7930E61AD79A1729AAF217D510F37"
+					FromRole="ToRole_assoc_EFF7930E61AD79A1729AAF217D510F37" ToRole="FromRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/><NavigationProperty Name="DraftAdministrativeData" Relationship="ZPO_HEADER_C_CDS.assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"
+					FromRole="FromRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095" ToRole="ToRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"/><NavigationProperty Name="SiblingEntity" Relationship="ZPO_HEADER_C_CDS.assoc_129327FF39492A058656FFC12504C196"
+					FromRole="FromRole_assoc_129327FF39492A058656FFC12504C196" ToRole="ToRole_assoc_129327FF39492A058656FFC12504C196"/></EntityType>
+			<ComplexType Name="ValidationFunctionResult"><Property Name="IsValid" Type="Edm.Boolean" sap:label="Est valide"/></ComplexType>
+			<Association Name="assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F" sap:content-version="1"><End Type="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" Multiplicity="1" Role="FromRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"/><End Type="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" Multiplicity="0..1" Role="ToRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"/></Association>
+			<Association Name="assoc_EFF7930E61AD79A1729AAF217D510F37" sap:content-version="1"><End Type="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" Multiplicity="1" Role="FromRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/><End Type="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" Multiplicity="*" Role="ToRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/></Association>
+			<Association Name="assoc_776DBBDBE77BD7DD39DD3047D1DE12C0" sap:content-version="1"><End Type="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" Multiplicity="1" Role="FromRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"/><End Type="ZPO_HEADER_C_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"/></Association>
+			<Association Name="assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095" sap:content-version="1"><End Type="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" Multiplicity="1" Role="FromRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"/><End Type="ZPO_HEADER_C_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"/></Association>
+			<Association Name="assoc_129327FF39492A058656FFC12504C196" sap:content-version="1"><End Type="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" Multiplicity="1" Role="FromRole_assoc_129327FF39492A058656FFC12504C196"/><End Type="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" Multiplicity="0..1" Role="ToRole_assoc_129327FF39492A058656FFC12504C196"/></Association>
+			<EntityContainer Name="ZPO_HEADER_C_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="I_DraftAdministrativeData" EntityType="ZPO_HEADER_C_CDS.I_DraftAdministrativeDataType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPO_HEADER_C" EntityType="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" sap:content-version="1"/><EntitySet Name="ZPO_ITEM_C" EntityType="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" sap:content-version="1"/>
+				<AssociationSet Name="assoc_129327FF39492A058656FFC12504C196" Association="ZPO_HEADER_C_CDS.assoc_129327FF39492A058656FFC12504C196"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZPO_ITEM_C" Role="FromRole_assoc_129327FF39492A058656FFC12504C196"/><End EntitySet="ZPO_ITEM_C" Role="ToRole_assoc_129327FF39492A058656FFC12504C196"/></AssociationSet>
+				<AssociationSet Name="assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F" Association="ZPO_HEADER_C_CDS.assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZPO_HEADER_C" Role="FromRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"/><End EntitySet="ZPO_HEADER_C" Role="ToRole_assoc_D25B4EF6A7F3CA2DE2D4EE7896CF7F3F"/></AssociationSet>
+				<AssociationSet Name="assoc_EFF7930E61AD79A1729AAF217D510F37" Association="ZPO_HEADER_C_CDS.assoc_EFF7930E61AD79A1729AAF217D510F37"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZPO_HEADER_C" Role="FromRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/><End EntitySet="ZPO_ITEM_C" Role="ToRole_assoc_EFF7930E61AD79A1729AAF217D510F37"/></AssociationSet>
+				<AssociationSet Name="assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095" Association="ZPO_HEADER_C_CDS.assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZPO_ITEM_C" Role="FromRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_5CA447B4EDA3CC1A5E818F7CD8EB3095"/></AssociationSet>
+				<AssociationSet Name="assoc_776DBBDBE77BD7DD39DD3047D1DE12C0" Association="ZPO_HEADER_C_CDS.assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZPO_HEADER_C" Role="FromRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_776DBBDBE77BD7DD39DD3047D1DE12C0"/></AssociationSet>
+				<FunctionImport Name="ZPO_HEADER_CActivation" ReturnType="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" EntitySet="ZPO_HEADER_C" m:HttpMethod="POST"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" sap:applicable-path="Activation_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/></FunctionImport>
+				<FunctionImport Name="ZPO_HEADER_CEdit" ReturnType="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" EntitySet="ZPO_HEADER_C" m:HttpMethod="POST"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" sap:applicable-path="Edit_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZPO_HEADER_CPreparation" ReturnType="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" EntitySet="ZPO_HEADER_C" m:HttpMethod="POST"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" sap:applicable-path="Preparation_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZPO_HEADER_CValidation" ReturnType="ZPO_HEADER_C_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_HEADER_CType" sap:applicable-path="Validation_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZPO_ITEM_CPreparation" ReturnType="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" EntitySet="ZPO_ITEM_C" m:HttpMethod="POST"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" sap:applicable-path="Preparation_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="OrderItem" Type="Edm.String" Mode="In" MaxLength="5"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZPO_ITEM_CValidation" ReturnType="ZPO_HEADER_C_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="ZPO_HEADER_C_CDS.ZPO_ITEM_CType" sap:applicable-path="Validation_ac"><Parameter Name="OrderNumber" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="OrderItem" Type="Edm.String" Mode="In" MaxLength="5"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType/CurrencyKey"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType/OrderType"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType/Vendor"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType/PurchasingOrg"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType/PurchasingGrp"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_C">
+				<Annotation Term="Common.DraftRoot">
+					<Record><PropertyValue Property="ActivationAction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_CActivation"/><PropertyValue Property="EditAction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_CEdit"/><PropertyValue Property="PreparationAction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_CPreparation"/><PropertyValue Property="ValidationFunction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_CValidation"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_ITEM_C">
+				<Annotation Term="Common.DraftNode">
+					<Record><PropertyValue Property="PreparationAction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_ITEM_CPreparation"/><PropertyValue Property="ValidationFunction" String="ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_ITEM_CValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Common.DraftActivationVia">
+					<Collection>
+						<String>ZPO_HEADER_C_CDS.ZPO_HEADER_C_CDS_Entities/ZPO_HEADER_C</String>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_HEADER_CType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>OrderNumber</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZPO_HEADER_C_CDS.ZPO_ITEM_CType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>OrderItem</PropertyPath>
+						<PropertyPath>OrderNumber</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZPO_HEADER_C_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZPO_HEADER_C_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
